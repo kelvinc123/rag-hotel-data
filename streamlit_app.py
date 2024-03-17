@@ -1,14 +1,36 @@
-import openai
 import streamlit as st
 from rag import Rag
 
-if __name__ == "__main__":
-    rag = Rag()
-    # Streamlit UI
-    st.title('Your personal hotel chatbot')
-    user_input = st.text_input("Ask me about hotel")
+st.title("Hotel Chatbot")
 
-    if user_input:
-        with st.spinner('Thinking...'):
-            response = rag.chat(user_input)
-            st.text_area("Response", value=response, height=250, max_chars=None, key=None)
+# Initialize RAG object
+if 'rag' not in st.session_state:
+    st.session_state.rag = Rag()
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# React to user input
+if prompt := st.chat_input("Ask me about hotels"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    # Generate response using RAG
+    with st.spinner('Thinking...'):
+        response = st.session_state.rag.chat(prompt)
+
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
