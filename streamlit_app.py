@@ -1,3 +1,6 @@
+# Code from https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps
+# Feel free to check the documentation and modify the script
+
 import streamlit as st
 from rag import Rag
 
