@@ -1,0 +1,12 @@
+huggingface
+datasets
+streamlit
+qdrant-client
+sentence-transformers
+pandas
+numpy
+langchain
+sentence-transformers
+python-dotenv
+openai
+streamlit
