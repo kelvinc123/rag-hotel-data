@@ -1,6 +1,6 @@
 # iSEArch Hotels Project
 
-iSEArch Hotels is a Retrieval-Augmented Generation (RAG) hotel search chatbot that leverages Qdrant for enhanced semantic search capabilities, integrating OpenAI for natural language understanding and Traversaal API for dynamic content retrieval.
+iSEArch Hotels is a Retrieval-Augmented Generation (RAG) hotel search chatbot that leverages Qdrant for enhanced semantic search capabilities, integrating OpenAI for natural language understanding and Traversaal.ai API for dynamic content retrieval.
 
 ## Awards and Recognition 🏅
 
